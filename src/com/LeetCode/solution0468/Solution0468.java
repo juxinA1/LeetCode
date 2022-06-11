@@ -1,4 +1,4 @@
-package com.LeetCode.solution;
+package com.LeetCode.solution0468;
 
 public class Solution0468 {
 	public String validIPAddress(String queryIP) {
@@ -19,13 +19,13 @@ public class Solution0468 {
 
 	private String[] getIpType(String queryIP) {
 
-		// ÑéÖ¤ÊÇ·ñÊ±IPv4
+		// éªŒè¯æ˜¯å¦æ˜¯IPv4
 		String[] arrayIPv4 = queryIP.split("\\.", -1);
 		if (arrayIPv4.length == 4) {
 			return arrayIPv4;
 		}
 
-		// ÑéÖ¤ÊÇ·ñÊ±IPv6
+		// éªŒè¯æ˜¯å¦æ˜¯IPv6
 		String[] arrayIPv6 = queryIP.split("\\:", -1);
 		if (arrayIPv6.length == 8) {
 			return arrayIPv6;
@@ -35,18 +35,18 @@ public class Solution0468 {
 	}
 
 	/**
-	 * ÑéÖ¤IPv4ÊÇ·ñÕæÈ·
+	 * éªŒè¯IPv4æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param arrayIP
-	 *            ipv4×Ö·û´®
+	 *            ipv4å­—ç¬¦ä¸²
 	 * @return true/false
 	 */
 	private boolean checkIPv4(String[] arrayIP) {
 		for (int i = 0; i < arrayIP.length; i++) {
 			String ipv4 = arrayIP[i];
-			// XiÊÇ¿Õ
-			// XiÊÇÁ½Î»ÒÔÉÏÊ±£¬µÚÒ»Î»ÊÇÁã
-			// ÒÔÉÏµÄ³¡ºÏ£¬IPv4ÎŞĞ§
+			// Xiæ˜¯ç©º
+			// Xiæ˜¯ä¸¤ä½ä»¥ä¸Šæ—¶ï¼Œç¬¬ä¸€ä½æ˜¯é›¶
+			// ä»¥ä¸Šçš„åœºåˆï¼ŒIPv4æ— æ•ˆ
 			if (ipv4.isEmpty() || (ipv4.length() > 1 && "0".equals(ipv4.substring(0, 1)))) {
 				return false;
 			}
@@ -64,18 +64,18 @@ public class Solution0468 {
 	}
 
 	/**
-	 * ÑéÖ¤IPv6ÊÇ·ñÕæÈ·
+	 * éªŒè¯IPv6æ˜¯å¦çœŸç¡®
 	 * 
 	 * @param arrayIP
-	 *            ipv6×Ö·û´®
+	 *            ipv6å­—ç¬¦ä¸²
 	 * @return true/false
 	 */
 	private boolean checkIPv6(String[] arrayIP) {
 		for (int i = 0; i < arrayIP.length; i++) {
 			String ipv6 = arrayIP[i];
-			// XiÊÇ¿Õ
-			// XiÊÇËÄÎ»ÒÔÉÏÊ±
-			// ÒÔÉÏµÄ³¡ºÏ£¬IPv6ÎŞĞ§
+			// Xiæ˜¯ç©º
+			// Xiæ˜¯å››ä½ä»¥ä¸Šæ—¶
+			// ä»¥ä¸Šçš„åœºåˆï¼ŒIPv6æ— æ•ˆ
 			if (ipv6.isEmpty() || ipv6.length() > 4) {
 				return false;
 			}
